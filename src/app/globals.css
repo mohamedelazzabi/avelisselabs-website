@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: Poppins, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root {
+  --background: #f7f8fa;
+  --foreground: #101321;
+  --muted: #5b6275;
+  --panel: rgba(255, 255, 255, 0.76);
+  --panel-strong: #ffffff;
+  --line: rgba(16, 19, 33, 0.1);
+  --pink: #ff7eb6;
+  --lavender: #c78bff;
+  --light-pink: #ffd6e7;
+  --soft-purple: #e5e7ff;
+  --shadow: 0 24px 80px rgba(108, 83, 148, 0.16);
+}
+
+.dark {
+  --background: #10111a;
+  --foreground: #f7f8fa;
+  --muted: #b7bdcc;
+  --panel: rgba(24, 25, 38, 0.72);
+  --panel-strong: #181a29;
+  --line: rgba(255, 255, 255, 0.12);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 5%, rgba(255, 126, 182, 0.24), transparent 30rem),
+    radial-gradient(circle at 85% 12%, rgba(199, 139, 255, 0.22), transparent 28rem),
+    var(--background);
+  color: var(--foreground);
+}
+
+body,
+button,
+input,
+textarea {
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+::selection {
+  background: rgba(255, 126, 182, 0.32);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(255, 126, 182, 0.58);
+  outline-offset: 3px;
+}
+
+.glass {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px);
+}
+
+.nav-glass {
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--background) 82%, transparent);
+  backdrop-filter: blur(22px);
+}
+
+.gradient-text {
+  background: linear-gradient(115deg, var(--pink), var(--lavender));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.soft-gradient {
+  background: linear-gradient(135deg, var(--pink), var(--lavender));
+}
+
+.section-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 12px;
+  z-index: 100;
+  transform: translateY(-140%);
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 10px 16px;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
