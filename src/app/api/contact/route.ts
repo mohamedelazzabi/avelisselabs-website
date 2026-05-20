@@ -5,7 +5,7 @@ import { contactSchema, formDataToObject } from "@/lib/validation";
 export const runtime = "nodejs";
 
 const contactRecipient = process.env.CONTACT_TO_EMAIL ?? "support@avelisselabs.com";
-const fromEmail = process.env.RESEND_FROM_EMAIL ?? "Avelisse Labs <noreply@avelisselabs.com>";
+const fromEmail = process.env.RESEND_FROM_EMAIL ?? "Avelisse Labs Website <support@avelisselabs.com>";
 
 export async function POST(request: Request) {
   const formData = await request.formData();
@@ -38,6 +38,9 @@ export async function POST(request: Request) {
       "",
       "Message:",
       message,
+      "",
+      "---",
+      "This message was sent via the contact form on avelisselabs.com",
     ].join("\n"),
     html: contactEmailHtml({ name, email, message }),
   });
@@ -62,6 +65,9 @@ function contactEmailHtml({ name, email, message }: { name: string; email: strin
         <strong>Message</strong>
         <p style="white-space: pre-wrap;">${escapeHtml(message)}</p>
       </div>
+      <p style="margin-top: 24px; font-size: 12px; color: #6B7280; border-top: 1px solid #E5E7EB; padding-top: 12px;">
+        This message was sent via the contact form on <a href="https://avelisselabs.com" style="color: #6B7280;">avelisselabs.com</a>
+      </p>
     </div>
   `;
 }
