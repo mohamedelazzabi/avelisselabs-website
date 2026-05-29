@@ -4,6 +4,12 @@ export const siteConfig = {
   domain: "avelisselabs.com",
   url: "https://avelisselabs.com",
   supportEmail: "support@avelisselabs.com",
+  address: "30 N Gould St Ste R, Sheridan, WY, United States, Wyoming",
+  social: {
+    x: "https://x.com/avelisselabs",
+    instagram: "https://www.instagram.com/avelisselabs",
+    facebook: "https://www.facebook.com/share/1EVQQvazDn/",
+  },
   description:
     "Avelisse Labs creates mobile apps for health, wellness, family life, AI assistance, and everyday tracking.",
   nav: [

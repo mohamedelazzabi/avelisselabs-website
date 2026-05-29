@@ -8,7 +8,17 @@ export function structuredData() {
       name: siteConfig.name,
       url: siteConfig.url,
       email: siteConfig.supportEmail,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "30 N Gould St Ste R",
+        addressLocality: "Sheridan",
+        addressRegion: "WY",
+        addressCountry: "US",
+      },
       sameAs: [
+        siteConfig.social.x,
+        siteConfig.social.instagram,
+        siteConfig.social.facebook,
         "https://apps.avelisselabs.com",
         "https://support.avelisselabs.com",
       ],

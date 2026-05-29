@@ -1,4 +1,4 @@
-import { Brain, CalendarDays, CalendarHeart, Check, Dumbbell, Flame, Lock, Mail, ShieldCheck, Sparkles, Star, Timer } from "lucide-react";
+import { Brain, CalendarDays, CalendarHeart, Check, Dumbbell, Flame, Lock, Mail, MapPin, ShieldCheck, Sparkles, Star, Timer } from "lucide-react";
 import { AppCarousel } from "@/components/app-carousel";
 import { Button } from "@/components/button";
 import { ContactForm, NewsletterForm } from "@/components/forms";
@@ -205,6 +205,10 @@ export default function Home() {
                 <Mail size={18} className="text-pink-500" />
                 {siteConfig.supportEmail}
               </a>
+              <div className="mt-4 flex max-w-md items-start gap-3 rounded-[1.4rem] bg-white/70 p-4 text-sm font-semibold leading-6 text-[var(--muted)] shadow-sm dark:bg-white/10">
+                <MapPin size={19} className="mt-0.5 shrink-0 text-pink-500" />
+                <address className="not-italic">{siteConfig.address}</address>
+              </div>
             </Reveal>
             <Reveal delay={0.1}>
               <ContactForm />

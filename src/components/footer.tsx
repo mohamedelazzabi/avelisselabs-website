@@ -1,4 +1,4 @@
-import { Instagram, Mail, Music2 } from "lucide-react";
+import { Facebook, Instagram, Mail } from "lucide-react";
 import Link from "next/link";
 import { Logo } from "@/components/logo";
 import { siteConfig } from "@/lib/site";
@@ -20,10 +20,14 @@ export function Footer() {
             Building smart apps for wellness, family life, fitness, nutrition, cycle tracking, and AI-powered support.
           </p>
           <div className="mt-6 flex gap-3">
-            <SocialIcon label="Instagram" href="#" icon={<Instagram size={18} />} />
-            <SocialIcon label="TikTok" href="#" icon={<Music2 size={18} />} />
+            <SocialIcon label="X" href={siteConfig.social.x} icon={<span className="text-sm font-black">X</span>} />
+            <SocialIcon label="Instagram" href={siteConfig.social.instagram} icon={<Instagram size={18} />} />
+            <SocialIcon label="Facebook" href={siteConfig.social.facebook} icon={<Facebook size={18} />} />
             <SocialIcon label="Email" href={`mailto:${siteConfig.supportEmail}`} icon={<Mail size={18} />} />
           </div>
+          <address className="mt-5 max-w-sm text-sm not-italic leading-6 text-[var(--muted)]">
+            {siteConfig.address}
+          </address>
         </div>
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {columns.map((column) => (
